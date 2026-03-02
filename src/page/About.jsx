@@ -1,5 +1,6 @@
 import ThreeDCard from "../components/3DCard";
 import "../App.css";
+import profileImg from "../assets/profile.jpg";
 /* ─── DATA ─────────────────────────────────────── */
 const skills = [
   { name: "React / Next.js", level: 60, color: "#f59e0b" },
@@ -182,7 +183,7 @@ export default function About() {
                 <div className="about__avatar-ring" />
                 <div className="about__avatar-img">
                   <img
-                    src="https://i.pinimg.com/736x/98/a5/a7/98a5a76caf8dbb66de5316e93a7de2b8.jpg"
+                    src={profileImg}
                     alt="Profile"
                   />
                 </div>
@@ -288,3 +289,4 @@ export default function About() {
     </>
   );
 }
+
