@@ -2,12 +2,13 @@ import ThreeDCard from "../components/3DCard";
 import "../App.css";
 /* ─── DATA ─────────────────────────────────────── */
 const skills = [
-  { name: "React / Next.js", level: 92, color: "var(--aurora-1)" },
-  { name: "TypeScript", level: 85, color: "var(--aurora-2)" },
-  { name: "CSS / Tailwind", level: 95, color: "var(--aurora-3)" },
-  { name: "Node.js", level: 72, color: "var(--aurora-4)" },
-  { name: "Figma / UI Design", level: 80, color: "#f59e0b" },
-  { name: "Git / Version Control", level: 88, color: "#10b981" },];
+  { name: "React / Next.js", level: 60, color: "#f59e0b" },
+  { name: "TypeScript", level: 40, color: "#f59e0b" },
+  { name: "CSS / Tailwind", level: 70, color: "#f59e0b" },
+  { name: "Node.js", level: 40, color: "#10b981" },
+  { name: "Figma / UI Design", level: 50, color: "#f59e0b" },
+  { name: "Git / Version Control", level: 40, color: "#10b981" },
+];
 
 const techStack = [
   "React",
@@ -18,36 +19,41 @@ const techStack = [
   "Node.js",
   "Figma",
   "Git",
+  "Laravel",
 ];
 
 const projects = [
   {
-    title: "Aurora Dashboard",
-    desc: "Real-time analytics dashboard with live charts, glassmorphism UI, and dark mode.",
-    tags: ["React", "TypeScript", "Recharts"],
+    title: "Library Dashboard",
+    desc: "Real-time analytics dashboard intergrate with database",
+    tags: ["Php", "MySQL"],
     color: "#00c6ff",
     year: "2024",
+    link: "https://github.com/baikimhouy/Library_dashboard_php",
   },
   {
-    title: "E-Commerce Platform",
-    desc: "Full-featured store with cart, auth, Stripe payments, and a fully responsive design.",
-    tags: ["Next.js", "Stripe", "MongoDB"],
+    title: "Khmer Calender",
+    desc: "Khmer Calendeer web app with lunar calendar, festivals, and astrology info.",
+    tags: ["HTML"],
     color: "#7b2fff",
     year: "2024",
+    link: "https://github.com/baikimhouy/calender",
   },
   {
-    title: "3D Portfolio Generator",
-    desc: "Tool that generates animated 3D portfolio sites from a JSON config file.",
-    tags: ["Three.js", "WebGL", "GSAP"],
+    title: "Nova studio ecomerce clothing store",
+    desc: "E-commerce clothing store with Laravel, and admin dashboard.",
+    tags: ["Laravel", "MySQL", "Bootstrap"],
     color: "#00ffa3",
-    year: "2023",
+    year: "2025",
+    link: "https://github.com/Vuthy-Tourn/clothing-store",
   },
   {
-    title: "AI Writing Tool",
-    desc: "GPT-powered writing assistant with real-time suggestions and formatting exports.",
-    tags: ["React", "OpenAI API", "Node.js"],
+    title: "Tourism website",
+    desc: "This tourism website was built as part of the 1st Generation Full Stack Mini Project. The platform showcases Cambodia's stunning destination",
+    tags: ["HTML", "CSS", "Vercel"],
     color: "#ff6b6b",
-    year: "2023",
+    year: "2025",
+    link: "https://github.com/PorKeat/MiniProject_FSWD",
   },
 ];
 
@@ -77,47 +83,53 @@ function SkillBar({ name, level, color }) {
 function ProjectCard({ project }) {
   return (
     <ThreeDCard className="project-card glass-card">
-      <div className="project-card__inner">
-        <div
-          className="project-card__glow"
-          style={{
-            background: `radial-gradient(circle at 30% 30%, ${project.color}20, transparent 70%)`,
-          }}
-        />
-        <div className="project-card__top">
-          <span className="project-card__year">{project.year}</span>
+      <a href={project.link}>
+        <div className="project-card__inner">
           <div
-            className="project-card__icon"
-            style={{ borderColor: `${project.color}40`, color: project.color }}
-          >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path
-                d="M3 9h12M9 3l6 6-6 6"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
-        <h3 className="project-card__title">{project.title}</h3>
-        <p className="project-card__desc">{project.desc}</p>
-        <div className="project-card__tags">
-          {project.tags.map((t) => (
-            <span
-              key={t}
-              className="project-card__tag"
+            className="project-card__glow"
+            style={{
+              background: `radial-gradient(circle at 30% 30%, ${project.color}20, transparent 70%)`,
+            }}
+          />
+          <div className="project-card__top">
+            <span className="project-card__year">{project.year}</span>
+            <div
+              className="project-card__icon"
               style={{
-                borderColor: `${project.color}30`,
-                color: `${project.color}cc`,
+                borderColor: `${project.color}40`,
+                color: project.color,
               }}
             >
-              {t}
-            </span>
-          ))}
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M3 9h12M9 3l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <h3 className="project-card__title">{project.title}</h3>
+          <p className="project-card__desc">{project.desc}</p>
+
+          <div className="project-card__tags">
+            {project.tags.map((t) => (
+              <span
+                key={t}
+                className="project-card__tag"
+                style={{
+                  borderColor: `${project.color}30`,
+                  color: `${project.color}cc`,
+                }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
+      </a>
     </ThreeDCard>
   );
 }
@@ -138,9 +150,8 @@ export default function About() {
             </h2>
             <p className="about__body">
               I'm a frontend developer with a deep love for building interfaces
-              that feel as good as they look. I specialize in React ecosystems,
-              performant animations, and bridging the gap between design and
-              engineering.
+              that feel as good as they look. I specialize in React ,
+              performant animations
             </p>
             <p className="about__body">
               When I'm not pushing pixels, I'm exploring WebGL, contributing to

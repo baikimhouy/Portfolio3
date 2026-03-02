@@ -11,8 +11,7 @@ export default function Footer() {
       <div className="footer__inner container">
         <div className="footer__left">
           <span className="footer__logo">
-            <span className="footer__bracket">&lt;</span>Dev
-            <span className="footer__bracket">/&gt;</span>
+            <span className="footer__bracket"></span>Hui
           </span>
           <p className="footer__tagline">
             Crafting digital experiences

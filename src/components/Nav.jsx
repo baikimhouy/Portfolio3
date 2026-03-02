@@ -26,9 +26,7 @@ export default function Nav() {
     <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="nav__inner">
         <a href="#hero" className="nav__logo">
-          <span className="nav__logo-bracket">&lt;</span>
-          <span className="nav__logo-name">Dev</span>
-          <span className="nav__logo-bracket">/&gt;</span>
+          <span className="nav__logo-name">Hui</span>
         </a>
 
         <ul className={`nav__links ${menuOpen ? "nav__links--open" : ""}`}>
