@@ -1,6 +1,6 @@
 import ThreeDCard from "../components/3DCard";
 import "../index.css";
-
+import "../App.css";
 /* ─── DATA ─────────────────────────────────────── */
 const skills = [
   { name: "React / Next.js",      level: 60, color: "#60a5fa" },

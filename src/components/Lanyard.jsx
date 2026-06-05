@@ -18,8 +18,9 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 
 // replace with your own imports, see the usage snippet for details
-import cardGLB from "../assets/card.glb";
 import lanyard from "../assets/lanyard.png";
+import cardGLB from "../assets/card.glb";
+
 import * as THREE from "three";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
@@ -107,21 +108,15 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
     linearDamping: 4,
   };
   const { nodes, materials } = useGLTF(cardGLB);
-  const texture = useTexture(lanyard, (tex) => {
-    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
-  });
+  const texture = useTexture(lanyard);
   const [curve] = useState(
     () =>
-      new THREE.CatmullRomCurve3(
-        [
-          new THREE.Vector3(),
-          new THREE.Vector3(),
-          new THREE.Vector3(),
-          new THREE.Vector3(),
-        ],
-        false,
-        "chordal"
-      ),
+      new THREE.CatmullRomCurve3([
+        new THREE.Vector3(),
+        new THREE.Vector3(),
+        new THREE.Vector3(),
+        new THREE.Vector3(),
+      ]),
   );
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
@@ -178,9 +173,6 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
     }
   });
-
-
-
 
   return (
     <>

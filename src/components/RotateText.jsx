@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../App.css";
-
+import "../index.css";
 export default function RotateText({ words = [], interval = 2500 }) {
   const [index, setIndex] = useState(0);
   const [animating, setAnimating] = useState(false);

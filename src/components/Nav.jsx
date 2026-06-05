@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../index.css";
+import "../App.css";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },

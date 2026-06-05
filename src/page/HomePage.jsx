@@ -54,7 +54,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Lanyard floats on the right side, absolutely positioned */}
+      {/* Lanyard overflows below the hero */}
       <div className="hero__lanyard">
         <Lanyard
           position={[0, 0, 13]}
@@ -68,8 +68,6 @@ export default function HomePage() {
         <div className="hero__scroll-line" />
         <span></span>
       </div>
-      
     </section>
-    
   );
 }
