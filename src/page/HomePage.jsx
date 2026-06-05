@@ -1,10 +1,8 @@
 import RotateText from "../components/RotateText";
+import Lanyard from "../components/Lanyard";
 import "../App.css";
-const roles = [
-  "Frontend Developer",
-  "React Specialist",
-  "Vibe Coder",
-];
+
+const roles = ["Frontend Developer", "React Specialist", "Vibe Coder"];
 
 export default function HomePage() {
   return (
@@ -54,28 +52,24 @@ export default function HomePage() {
             Let's Talk
           </a>
         </div>
+      </div>
 
-        {/* <div
-          className="hero__stats fade-up"
-          style={{ animationDelay: "0.55s" }}
-        >
-          {[
-            { num: "Need", label: "Some Experience" },
-            { num: "N/A", label: "Projects Done" },
-            { num: "N/A", label: "Happy Clients" },
-          ].map((stat) => (
-            <div key={stat.label} className="hero__stat">
-              <span className="hero__stat-num">{stat.num}</span>
-              <span className="hero__stat-label">{stat.label}</span>
-            </div>
-          ))}
-        </div> */}
+      {/* Lanyard floats on the right side, absolutely positioned */}
+      <div className="hero__lanyard">
+        <Lanyard
+          position={[0, 0, 13]}
+          gravity={[0, -40, 0]}
+          fov={25}
+          transparent={true}
+        />
       </div>
 
       <div className="hero__scroll-hint">
         <div className="hero__scroll-line" />
         <span></span>
       </div>
+      
     </section>
+    
   );
 }

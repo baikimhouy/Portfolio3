@@ -1,26 +1,19 @@
 import ThreeDCard from "../components/3DCard";
-import "../App.css";
-import profileImg from "../assets/profile.jpg";
+import "../index.css";
+
 /* ─── DATA ─────────────────────────────────────── */
 const skills = [
-  { name: "React / Next.js", level: 60, color: "#f59e0b" },
-  { name: "TypeScript", level: 40, color: "#f59e0b" },
-  { name: "CSS / Tailwind", level: 70, color: "#f59e0b" },
-  { name: "Node.js", level: 40, color: "#10b981" },
-  { name: "Figma / UI Design", level: 50, color: "#f59e0b" },
-  { name: "Git / Version Control", level: 40, color: "#10b981" },
+  { name: "React / Next.js",      level: 60, color: "#60a5fa" },
+  { name: "TypeScript",           level: 40, color: "#93c5fd" },
+  { name: "CSS / Tailwind",       level: 70, color: "#3b82f6" },
+  { name: "Node.js",              level: 40, color: "#bfdbfe" },
+  { name: "Figma / UI Design",    level: 50, color: "#60a5fa" },
+  { name: "Git / Version Control",level: 40, color: "#93c5fd" },
 ];
 
 const techStack = [
-  "React",
-  "TypeScript",
-  "Next.js",
-  "Vite",
-  "Tailwind",
-  "Node.js",
-  "Figma",
-  "Git",
-  "Laravel",
+  "React","TypeScript","Next.js","Vite",
+  "Tailwind","Node.js","Figma","Git","Laravel",
 ];
 
 const projects = [
@@ -28,31 +21,31 @@ const projects = [
     title: "Library Dashboard",
     desc: "Real-time analytics dashboard intergrate with database",
     tags: ["Php", "MySQL"],
-    color: "#00c6ff",
+    color: "#60a5fa",
     year: "2024",
     link: "https://github.com/baikimhouy/Library_dashboard_php",
   },
   {
     title: "Khmer Calender",
-    desc: "Khmer Calendeer web app with lunar calendar, festivals, and astrology info.",
+    desc: "Khmer Calendar web app with lunar calendar, festivals, and astrology info.",
     tags: ["HTML"],
-    color: "#7b2fff",
+    color: "#93c5fd",
     year: "2024",
     link: "https://github.com/baikimhouy/calender",
   },
   {
-    title: "Nova studio ecomerce clothing store",
+    title: "Nova Studio E-commerce Clothing Store",
     desc: "E-commerce clothing store with Laravel, and admin dashboard.",
     tags: ["Laravel", "MySQL", "Bootstrap"],
-    color: "#00ffa3",
+    color: "#3b82f6",
     year: "2025",
     link: "https://github.com/Vuthy-Tourn/clothing-store",
   },
   {
-    title: "Tourism website",
-    desc: "This tourism website was built as part of the 1st Generation Full Stack Mini Project. The platform showcases Cambodia's stunning destination",
+    title: "Tourism Website",
+    desc: "Tourism website built as part of the 1st Generation Full Stack Mini Project showcasing Cambodia's stunning destinations.",
     tags: ["HTML", "CSS", "Vercel"],
-    color: "#ff6b6b",
+    color: "#bfdbfe",
     year: "2025",
     link: "https://github.com/PorKeat/MiniProject_FSWD",
   },
@@ -64,9 +57,7 @@ function SkillBar({ name, level, color }) {
     <div className="skill-bar">
       <div className="skill-bar__header">
         <span className="skill-bar__name">{name}</span>
-        <span className="skill-bar__pct" style={{ color }}>
-          {level}%
-        </span>
+        <span className="skill-bar__pct" style={{ color }}>{level}%</span>
       </div>
       <div className="skill-bar__track">
         <div
@@ -84,22 +75,19 @@ function SkillBar({ name, level, color }) {
 function ProjectCard({ project }) {
   return (
     <ThreeDCard className="project-card glass-card">
-      <a href={project.link}>
+      <a href={project.link} target="_blank" rel="noopener noreferrer">
         <div className="project-card__inner">
           <div
             className="project-card__glow"
             style={{
-              background: `radial-gradient(circle at 30% 30%, ${project.color}20, transparent 70%)`,
+              background: `radial-gradient(circle at 30% 30%, ${project.color}18, transparent 70%)`,
             }}
           />
           <div className="project-card__top">
             <span className="project-card__year">{project.year}</span>
             <div
               className="project-card__icon"
-              style={{
-                borderColor: `${project.color}40`,
-                color: project.color,
-              }}
+              style={{ borderColor: `${project.color}40`, color: project.color }}
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path
@@ -114,7 +102,6 @@ function ProjectCard({ project }) {
           </div>
           <h3 className="project-card__title">{project.title}</h3>
           <p className="project-card__desc">{project.desc}</p>
-
           <div className="project-card__tags">
             {project.tags.map((t) => (
               <span
@@ -151,55 +138,31 @@ export default function About() {
             </h2>
             <p className="about__body">
               I'm a frontend developer with a deep love for building interfaces
-              that feel as good as they look. I specialize in React ,
-              performant animations
+              that feel as good as they look. I specialize in React,
+              performant animations.
             </p>
             <p className="about__body">
               When I'm not pushing pixels, I'm exploring WebGL, contributing to
-              open source, or trying to make CSS do things it wasn't designed to
-              do.
+              open source, or trying to make CSS do things it wasn't designed to do.
             </p>
             <div className="about__details">
               {[
                 { label: "Location", value: "SenSok, Phnom Penh" },
-                { label: "Email", value: "ctin871@gmail.com" },
-                { label: "Status", value: "Open to work", highlight: true },
+                { label: "Email",    value: "ctin871@gmail.com" },
+                { label: "Status",   value: "Open to work", highlight: true },
               ].map((d) => (
                 <div key={d.label} className="about__detail">
                   <span className="about__detail-label">{d.label}</span>
                   <span
-                    className={`about__detail-value ${d.highlight ? "about__detail-value--highlight" : ""}`}
+                    className={`about__detail-value ${
+                      d.highlight ? "about__detail-value--highlight" : ""
+                    }`}
                   >
                     {d.value}
                   </span>
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="about__visual">
-            <ThreeDCard className="about__card glass-card" intensity={8}>
-              <div className="about__avatar">
-                <div className="about__avatar-ring" />
-                <div className="about__avatar-img">
-                  <img
-                    src={profileImg}
-                    alt="Profile"
-                  />
-                </div>
-              </div>
-              <div className="about__card-info">
-                <span className="about__card-name">Bai KimHouy</span>
-                <span className="about__card-role">Frontend Developer</span>
-              </div>
-              <div className="about__card-chips">
-                {["React", "TypeScript", "CSS"].map((t) => (
-                  <span key={t} className="about__chip">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </ThreeDCard>
           </div>
         </div>
       </section>
@@ -229,9 +192,7 @@ export default function About() {
             </p>
             <div className="tech-stack">
               {techStack.map((t) => (
-                <span key={t} className="tech-tag">
-                  {t}
-                </span>
+                <span key={t} className="tech-tag">{t}</span>
               ))}
             </div>
           </div>
@@ -279,7 +240,7 @@ export default function About() {
                   rel="noopener noreferrer"
                   className="btn btn--ghost"
                 >
-                  github
+                  GitHub
                 </a>
               </div>
             </div>
@@ -289,4 +250,3 @@ export default function About() {
     </>
   );
 }
-

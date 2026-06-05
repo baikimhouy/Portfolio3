@@ -1,4 +1,4 @@
-import "../App.css";
+import "../index.css";
 const socials = [
   { label: "GitHub", href: "https://github.com", icon: "GH" },
   { label: "LinkedIn", href: "https://linkedin.com", icon: "LI" },
