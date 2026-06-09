@@ -1,7 +1,7 @@
 import RotateText from "../components/RotateText";
 import Lanyard from "../components/Lanyard";
+import "../index.css";
 import "../App.css";
-
 const roles = ["Frontend Developer", "React Specialist", "Vibe Coder"];
 
 export default function HomePage() {

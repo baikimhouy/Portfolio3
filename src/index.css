@@ -172,7 +172,452 @@
   50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
   100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
 }
+/* ─────────────────────────────────────────────────────────────
+   DESIGN SECTION  —  shared intro / filters (unchanged)
+───────────────────────────────────────────────────────────── */
+.design__intro {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
 
+.design__filters {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.design__filter {
+  padding: 0.45rem 1.2rem;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.design__filter:hover {
+  border-color: rgba(0, 153, 204, 0.35);
+  color: var(--aurora-1);
+  background: rgba(0, 153, 204, 0.07);
+}
+
+.design__filter--active {
+  background: linear-gradient(135deg, var(--aurora-2), var(--aurora-1));
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 16px rgba(0, 153, 204, 0.3);
+}
+
+.design__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.design__poster-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 3.5rem 0 1.5rem;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CREATIVE CARD  (UX/UI · Mobile App)
+───────────────────────────────────────────────────────────── */
+.c-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  position: relative;
+  text-decoration: none;
+  transition:
+    transform 0.38s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.38s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.c-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 56px rgba(0, 100, 200, 0.13);
+}
+
+/* Animated accent line sweeps in from left on hover */
+.c-card__accent-line {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent, #0099cc), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.c-card:hover .c-card__accent-line {
+  transform: scaleX(1);
+}
+
+/* Image area */
+.c-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.c-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.c-card:hover .c-card__img {
+  transform: scale(1.06);
+}
+
+.c-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Diagonal shine that slides across on hover */
+.c-card__shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+
+.c-card:hover .c-card__shine {
+  transform: translateX(100%);
+}
+
+/* Category badge */
+.c-card__cat {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  padding: 0.28rem 0.8rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, #0099cc);
+  backdrop-filter: blur(10px);
+}
+
+/* Card body */
+.c-card__body {
+  padding: 1.35rem 1.5rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+}
+
+.c-card__year {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.c-card__arrow-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent, #0099cc);
+  transition: var(--transition);
+}
+
+.c-card:hover .c-card__arrow-btn {
+  transform: translateX(3px) translateY(-3px);
+  background: var(--accent, #0099cc);
+  color: white;
+  border-color: transparent;
+}
+
+.c-card__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+}
+
+.c-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.1rem;
+  flex: 1;
+}
+
+.c-card__tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.c-card__tag {
+  padding: 0.2rem 0.6rem;
+  background: color-mix(in srgb, var(--accent, #0099cc) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #0099cc) 20%, transparent);
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--accent, #0099cc);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   PINTEREST MASONRY  (Poster)
+───────────────────────────────────────────────────────────── */
+.pin-grid {
+  columns: 3;
+  column-gap: 1rem;
+}
+
+.pin-card {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(37, 99, 235, 0.07);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.pin-card a {
+  text-decoration: none;
+  display: block;
+}
+
+.pin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(0, 100, 200, 0.13);
+}
+
+/* Image — natural height = masonry columns fill unevenly */
+/* Remove any aspect-ratio or fixed height from pin card images */
+.pin-card__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
+}
+
+.pin-card__img {
+  width: 100%;
+  height: auto;       /* ← this is the key line — no fixed height */
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Placeholder — give each a DIFFERENT height so masonry looks natural */
+.pin-card__placeholder {
+  width: 100%;
+  min-height: 260px;  /* vary this per card using inline style */
+}
+
+.pin-card:hover .pin-card__img {
+  transform: scale(1.04);
+}
+/* ─── EMPTY STATE ─────────────────────────── */
+.design__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  gap: 0.50rem;
+}
+
+.design__empty-img {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.design__empty-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.design__empty-sub {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.design__empty-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  color: var(--aurora-1);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.design__empty-btn:hover {
+  background: rgba(0, 153, 204, 0.07);
+  border-color: rgba(0, 153, 204, 0.35);
+}
+
+/* Overlay with "View" button — top-right like Pinterest save button */
+.pin-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.pin-card:hover .pin-card__overlay {
+  opacity: 1;
+}
+
+.pin-card__view-btn {
+  padding: 0.5rem 1.1rem;
+  background: var(--accent, #0077aa);
+  color: white;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transform: translateY(-6px);
+  transition: transform 0.28s ease;
+  white-space: nowrap;
+}
+
+.pin-card:hover .pin-card__view-btn {
+  transform: translateY(0);
+}
+
+.pin-card__body {
+  padding: 0.85rem 1rem 1rem;
+}
+
+.pin-card__title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.pin-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.pin-card__tags {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.pin-card__tag {
+  padding: 0.15rem 0.55rem;
+  background: color-mix(in srgb, var(--accent, #0077aa) 8%, transparent);
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent, #0077aa);
+}
+
+.pin-card__year {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .design__grid { grid-template-columns: repeat(2, 1fr); }
+  .pin-grid     { columns: 2; }
+}
+
+@media (max-width: 600px) {
+  .design__grid    { grid-template-columns: 1fr; }
+  .pin-grid        { columns: 2; }
+  .design__filters { gap: 0.5rem; }
+}
 
 /* ─── LANYARD OVERFLOW ──────────────────────── */
 .hero {
@@ -449,6 +894,257 @@
   color: var(--aurora-1);
   font-family: var(--font-display);
   font-weight: 500;
+}/* ─── TIMELINE SECTION ────────────────────────────────────── */
+
+/* Outer timeline track */
+.tl {
+  position: relative;
+  padding-left: 2.25rem;
+  margin-bottom: 0;
+}
+
+/* Vertical connecting line */
+.tl__line {
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 0;
+  width: 1.5px;
+  background: var(--glass-border);
+}
+
+/* ── Timeline item ── */
+.tl-item {
+  position: relative;
+  margin-bottom: 1.75rem;
+}
+
+.tl-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Dot on the line */
+.tl-dot {
+  position: absolute;
+  left: -2.25rem;
+  top: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--aurora-1);
+  background: white;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+/* Active/current dot — filled + pulse ring */
+.tl-dot--active {
+  background: var(--aurora-1);
+}
+
+.tl-dot--active::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--aurora-1);
+  opacity: 0.35;
+  animation: tl-pulse 2s ease-in-out infinite;
+}
+
+@keyframes tl-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.35; }
+  50%       { transform: scale(1.6); opacity: 0;    }
+}
+
+/* ── Card ── */
+.tl-card {
+  padding: 1.1rem 1.25rem;
+}
+
+.tl-card__top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.tl-card__year {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid var(--glass-border);
+  padding: 0.22rem 0.65rem;
+  border-radius: 100px;
+}
+
+.tl-card__badge {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--aurora-1);
+  background: rgba(0, 153, 204, 0.08);
+  border: 1px solid rgba(0, 153, 204, 0.2);
+  padding: 0.22rem 0.65rem;
+  border-radius: 100px;
+}
+
+.tl-card__school {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.2rem;
+}
+
+.tl-card__degree {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--aurora-1);
+  margin-bottom: 0.6rem;
+}
+
+.tl-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Divider ── */
+.tl__divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(37, 99, 235, 0.12),
+    transparent
+  );
+  margin: 3rem 0;
+}
+
+/* ── Interests ── */
+.tl__interests-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.1rem;
+}
+
+.tl__interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.interest-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  background: white;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.interest-pill i {
+  font-size: 15px;
+  color: var(--aurora-1);
+}
+
+.interest-pill:hover {
+  border-color: rgba(0, 153, 204, 0.35);
+  color: var(--aurora-1);
+  background: rgba(0, 153, 204, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .tl { padding-left: 1.75rem; }
+  .tl-dot { left: -1.75rem; }
+  .tl__interests { gap: 0.45rem; }
+}/* ─── ABOUT + TIMELINE COMBINED ─────── */
+.about-tl__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+/* ── Certificate grid ── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.cert-card {
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 100, 200, 0.1);
+}
+
+.cert-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(37, 99, 235, 0.03);
+}
+
+.cert-card__img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.cert-card:hover .cert-card__img { transform: scale(1.04); }
+
+.cert-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.cert-card__placeholder i { font-size: 28px; color: var(--text-muted); }
+
+.cert-card__body { padding: 0.6rem 0.85rem 0.85rem; }
+
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .about-tl__grid { grid-template-columns: 1fr; gap: 3rem; }
 }
 
 /* ─── PROJECTS ────────────────────────── */

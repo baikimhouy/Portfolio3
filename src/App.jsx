@@ -3,8 +3,11 @@ import "./App.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import HomePage from "./page/HomePage";
-import About from "./page/About";
-
+import Design from "./page/Design";
+import Contact from "./page/Contact";
+import Projects from "./page/Projects";
+import Skills from "./page/Skills";
+import Timeline from "./page/Timeline";
 export default function App() {
   const cursorRef = useRef(null);
   const followerRef = useRef(null);
@@ -56,7 +59,11 @@ export default function App() {
 
       <main>
         <HomePage />
-        <About />
+        <Timeline />
+        <Projects />
+        <Design />
+        <Skills />
+        <Contact />
       </main>
 
       <Footer />
