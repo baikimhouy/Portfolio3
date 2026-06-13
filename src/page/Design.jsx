@@ -38,7 +38,7 @@ const designWork = [
     tags: ["Figma"],
     color: "#0077aa",
     year: "2026",
-    link: "https://behance.net/your-link",
+    link: "https://www.figma.com/design/78IPbHX2Is7Nu7QLdd150Q/Learn?node-id=0-1&t=IcSekrdzRjThDsZz-1",
     image: rammenImg,
     placeholderHeight: 260,
     category: "Poster",
@@ -49,7 +49,7 @@ const designWork = [
     tags: ["Illustrator", "Typography", "Figma"],
     color: "#e84393",
     year: "2026",
-    link: "https://behance.net/your-link",
+    link: "https://www.figma.com/design/78IPbHX2Is7Nu7QLdd150Q/Learn?node-id=0-1&t=IcSekrdzRjThDsZz-1",
     image: foodImg,
     placeholderHeight: 340,
     category: "Poster",
@@ -60,7 +60,7 @@ const designWork = [
     tags: ["Illustration", "Branding", "Print"],
     color: "#0077aa",
     year: "2025",
-    link: "https://behance.net/your-link",
+    link: "null",
     image: namecardImg,
     placeholderHeight: 280,
     category: "Poster",
@@ -71,14 +71,14 @@ const designWork = [
     tags: ["Illustrator", "Typography", "Photoshop"],
     color: "#0077aa",
     year: "2025",
-    link: "https://behance.net/your-link",
+    link: "null",
     image: movieImg,
     placeholderHeight: 340,
     category: "Poster",
-  }
+  },
 ];
 
-const FILTERS = ["All", "UX/UI", "Mobile App", "Poster"];
+const FILTERS = ["All", "UX/UI", "Poster"];
 
 function ArrowIcon() {
   return (

@@ -12,7 +12,7 @@ export default function HomePage() {
       <div className="container hero__content">
         <div className="hero__badge fade-up" style={{ animationDelay: "0.1s" }}>
           <span className="hero__badge-dot" />
-          Available for freelance & full-time
+          Available for freelance & part-time
         </div>
 
         <h1

@@ -1,4 +1,4 @@
-import preuniImg from "../assets/pre.png";
+// import preuniImg from "../assets/pre.png";
 const education = [
   {
     year: "2022 – Present",
@@ -32,11 +32,11 @@ const education = [
   },
 ];
 
-const certificates = [
-  { img: preuniImg },
-  {img: preuniImg },
-  {img: preuniImg },
-];
+// const certificates = [
+//   { img: preuniImg },
+//   {img: preuniImg },
+//   {img: preuniImg },
+// ];
 
 function CertCard({ cert }) {
   return (
@@ -92,16 +92,12 @@ export default function AboutTimeline() {
               that feel as good as they look. I specialize in React and
               performant animations.
             </p>
-            <p className="about__body">
-              When I'm not pushing pixels, I'm exploring WebGL, contributing to
-              open source, or trying to make CSS do things it wasn't designed to
-              do.
-            </p>
+
 
             <div className="about__details">
               {[
                 { label: "Location", value: "SenSok, Phnom Penh" },
-                { label: "Email", value: "ctin871@gmail.com" },
+                { label: "Email", value: "baikimhoui@gmail.com" },
                 { label: "Status", value: "Open to work", highlight: true },
               ].map((d) => (
                 <div key={d.label} className="about__detail">
@@ -116,12 +112,12 @@ export default function AboutTimeline() {
             </div>
 
             {/* Certificates */}
-            <p className="design__poster-label">Certificates</p>
+            {/* <p className="design__poster-label">Certificates</p>
             <div className="cert-grid">
               {certificates.map((cert) => (
                 <CertCard key={cert.name} cert={cert} />
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* ── RIGHT: timeline + interests ── */}

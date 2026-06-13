@@ -15,11 +15,11 @@ export default function Contact() {
               great together
             </h2>
             <p className="contact__desc">
-              I'm currently open to freelance projects and full-time positions.
+              I'm currently open to freelance projects and part-time positions.
               If you have an idea or opportunity, I'd love to hear from you.
             </p>
             <div className="contact__actions">
-              <a href="mailto:ctin871@gmail.com" className="btn btn--primary">
+              <a href="mailto:baikimhoui@gmail.com" className="btn btn--primary">
                 Send Email
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path

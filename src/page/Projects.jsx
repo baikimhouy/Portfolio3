@@ -10,12 +10,20 @@ const projects = [
     link: "https://github.com/baikimhouy/Library_dashboard_php",
   },
   {
-    title: "Khmer Calender",
-    desc: "Khmer Calendar web app with lunar calendar, festivals, and astrology info.",
-    tags: ["HTML"],
-    color: "#93c5fd",
-    year: "2024",
-    link: "https://github.com/baikimhouy/calender",
+    title: "Eternal shine mobile app",
+    desc: "Eternal Shine is a skincare and beauty e-commerce mobile application built with Flutter and Dart. The app focuses on a clean shopping experience where users can explore skincare products.",
+    tags: ["Flutter", "Dart"],
+    color: "#3b82f6",
+    year: "2026",
+    link: "https://github.com/Vuthy-Tourn/flutter_assignment",
+  },
+  {
+    title: "POS System — Java Swing",
+    desc: "Point-of-sale system built with Java Swing for managing sales and inventory.",
+    tags: ["Java", "Swing"],
+    color: "#bfdbfe",
+    year: "2025",
+    link: "https://github.com/Vuthy-Tourn/assignment-java-swing",
   },
   {
     title: "Nova Studio E-commerce Clothing Store",
@@ -24,14 +32,6 @@ const projects = [
     color: "#3b82f6",
     year: "2025",
     link: "https://github.com/Vuthy-Tourn/clothing-store",
-  },
-  {
-    title: "Tourism Website",
-    desc: "Tourism website built as part of the 1st Generation Full Stack Mini Project showcasing Cambodia's stunning destinations.",
-    tags: ["HTML", "CSS", "Vercel"],
-    color: "#bfdbfe",
-    year: "2025",
-    link: "https://github.com/PorKeat/MiniProject_FSWD",
   },
 ];
 
