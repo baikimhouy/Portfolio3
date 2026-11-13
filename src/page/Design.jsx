@@ -76,6 +76,7 @@ const designWork = [
     placeholderHeight: 340,
     category: "Poster",
   },
+  
 ];
 
 const FILTERS = ["All", "UX/UI", "Poster"];

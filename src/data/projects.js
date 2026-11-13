@@ -1,5 +1,6 @@
 import skincareImg from "../assets/skincare.webp";
-
+import clothingStoreImg from "../assets/clothweb.webp";
+import clothpos from "../assets/clothpos.webp";
 /*
   All project info lives here. The card on the home page and the detail page
   both read from this one array.
@@ -97,7 +98,34 @@ export const projects = [
       "Admin dashboard",
       "Laravel + MySQL backend, Bootstrap UI",
     ],
-    images: [],
+    images: [clothingStoreImg],
+  },
+  {
+    slug: "stylepos-clothing-pos",
+    title: "StylePOS — Clothing Shop POS",
+    desc: "Point-of-sale web app for a clothing shop with cart, payments, inventory and a sales dashboard. Supports English and Khmer.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    color: "#60a5fa",
+    year: "2026",
+    type: "Web app",
+    role: "Frontend developer",
+    link: "https://github.com/baikimhouy/POS",
+    live: "https://github.com/baikimhouy/POS/issues/1#issue-5939482654", 
+    overview: [
+      "StylePOS is a point-of-sale web app built for a clothing shop. Cashiers sell products by picking color and size, while admins manage products, stock, staff and sales reports.",
+      "The interface is available in English and Khmer, and the frontend talks to a separate backend API through Axios.",
+    ],
+    features: [
+      "POS screen with color and size selection, cart, discounts, and payment by Cash, KHQR or bank transfer",
+      "Printable receipts",
+      "Product list, search, and add/edit products with photo upload (admin)",
+      "Inventory: add or remove stock and view stock history (admin)",
+      "Sales history with the ability to void a sale (admin)",
+      "Customer management and employee management (admin)",
+      "Dashboard with daily sales, best sellers and a low-stock list (admin)",
+      "English and Khmer language support with react-i18next",
+    ],
+    images: [clothpos], 
   },
 ];
 

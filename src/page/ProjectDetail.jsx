@@ -25,7 +25,7 @@ export default function ProjectDetail() {
   useEffect(() => {
     if (!project) return;
     const previous = document.title;
-    document.title = `${project.title} — Bai Kimhouy`;
+    document.title = `${project.title}  Bai Kimhouy`;
     return () => {
       document.title = previous;
     };
