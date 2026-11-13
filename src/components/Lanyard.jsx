@@ -35,6 +35,19 @@ export default function Lanyard({
     () => typeof window !== "undefined" && window.innerWidth < 768,
   );
 
+  // Pause the 3D render loop + physics while the hero is off-screen
+  const wrapRef = useRef(null);
+  const [inView, setInView] = useState(true);
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([entry]) =>
+      setInView(entry.isIntersecting),
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
@@ -42,8 +55,12 @@ export default function Lanyard({
   }, []);
 
   return (
-    <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center">
+    <div
+      ref={wrapRef}
+      className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center"
+    >
       <Canvas
+        frameloop={inView ? "always" : "never"}
         camera={{ position: position, fov: fov }}
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent }}

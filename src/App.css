@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Concert+One&family=Freehand&family=Hanuman:wght@100;300;400;700;900&family=M+PLUS+Rounded+1c&family=Poetsen+One&family=Preahvihear&display=swap');
-
 :root {
   --bg-0: #f4f7ff;
   --bg-1: #eaf0ff;
@@ -177,6 +175,7 @@ section { padding: 120px 0; }
   filter: blur(120px);
   opacity: 0.10;
   animation: blobFloat 12s ease-in-out infinite;
+  will-change: transform;
 }
 
 .aurora-blob:nth-child(1) {

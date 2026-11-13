@@ -1,7 +1,9 @@
+import { lazy, Suspense } from "react";
 import RotateText from "../components/RotateText";
-import Lanyard from "../components/Lanyard";
 import "../index.css";
 import "../App.css";
+// three.js + physics engine (~2 MB) load AFTER the page is visible
+const Lanyard = lazy(() => import("../components/Lanyard"));
 const roles = ["Frontend Developer", "React Specialist", "Vibe Coder"];
 
 export default function HomePage() {
@@ -56,12 +58,14 @@ export default function HomePage() {
 
       {/* Lanyard overflows below the hero */}
       <div className="hero__lanyard">
-        <Lanyard
-          position={[0, 0, 13]}
-          gravity={[0, -40, 0]}
-          fov={25}
-          transparent={true}
-        />
+        <Suspense fallback={null}>
+          <Lanyard
+            position={[0, 0, 13]}
+            gravity={[0, -40, 0]}
+            fov={25}
+            transparent={true}
+          />
+        </Suspense>
       </div>
 
       <div className="hero__scroll-hint">

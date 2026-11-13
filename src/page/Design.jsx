@@ -3,12 +3,12 @@ import "../App.css";
 import "../index.css";
 
 // ── Update image imports to match your actual files in src/assets ──
-import deliveryImg from "../assets/delivery.png";
-import skincareImg from "../assets/skincare.png";
-import rammenImg from "../assets/ramen.jpg";
-import foodImg from "../assets/food.png";
-import namecardImg from "../assets/namecard.jpg";
-import movieImg from "../assets/movie.jpg";
+import deliveryImg from "../assets/delivery.webp";
+import skincareImg from "../assets/skincare.webp";
+import rammenImg from "../assets/ramen.webp";
+import foodImg from "../assets/food.webp";
+import namecardImg from "../assets/namecard.webp";
+import movieImg from "../assets/movie.webp";
 import emptyGif from "../assets/empty.svg"; 
 
 const designWork = [
@@ -134,7 +134,7 @@ function CreativeCard({ item }) {
     >
       <div className="c-card__media">
         {item.image ? (
-          <img src={item.image} alt={item.title} className="c-card__img" />
+          <img src={item.image} alt={item.title} className="c-card__img" loading="lazy" decoding="async" />
         ) : (
           <ImgPlaceholder color={item.color} />
         )}
@@ -169,7 +169,7 @@ function PinCard({ item }) {
       <a href={item.link} target="_blank" rel="noopener noreferrer">
         <div className="pin-card__media">
           {item.image ? (
-            <img src={item.image} alt={item.title} className="pin-card__img" />
+            <img src={item.image} alt={item.title} className="pin-card__img" loading="lazy" decoding="async" />
           ) : (
             <div
               className="pin-card__placeholder"

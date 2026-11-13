@@ -1,44 +1,13 @@
+import { Link } from "react-router-dom";
 import ThreeDCard from "../components/3DCard";
+import { projects } from "../data/projects";
 import "../index.css";
-const projects = [
-  {
-    title: "Library Dashboard",
-    desc: "Real-time analytics dashboard intergrate with database",
-    tags: ["Php", "MySQL"],
-    color: "#60a5fa",
-    year: "2024",
-    link: "https://github.com/baikimhouy/Library_dashboard_php",
-  },
-  {
-    title: "Eternal shine mobile app",
-    desc: "Eternal Shine is a skincare and beauty e-commerce mobile application built with Flutter and Dart. The app focuses on a clean shopping experience where users can explore skincare products.",
-    tags: ["Flutter", "Dart"],
-    color: "#3b82f6",
-    year: "2026",
-    link: "https://github.com/Vuthy-Tourn/flutter_assignment",
-  },
-  {
-    title: "POS System — Java Swing",
-    desc: "Point-of-sale system built with Java Swing for managing sales and inventory.",
-    tags: ["Java", "Swing"],
-    color: "#bfdbfe",
-    year: "2025",
-    link: "https://github.com/Vuthy-Tourn/assignment-java-swing",
-  },
-  {
-    title: "Nova Studio E-commerce Clothing Store",
-    desc: "E-commerce clothing store with Laravel, and admin dashboard.",
-    tags: ["Laravel", "MySQL", "Bootstrap"],
-    color: "#3b82f6",
-    year: "2025",
-    link: "https://github.com/Vuthy-Tourn/clothing-store",
-  },
-];
+
 
 function ProjectCard({ project }) {
   return (
     <ThreeDCard className="project-card glass-card">
-      <a href={project.link} target="_blank" rel="noopener noreferrer">
+      <Link to={`/projects/${project.slug}`} aria-label={`View details: ${project.title}`}>
         <div className="project-card__inner">
           <div
             className="project-card__glow"
@@ -83,7 +52,7 @@ function ProjectCard({ project }) {
             ))}
           </div>
         </div>
-      </a>
+      </Link>
     </ThreeDCard>
   );
 }
@@ -96,7 +65,7 @@ export default function Projects() {
         <h2 className="section-title">Things I've built</h2>
         <div className="projects__grid">
           {projects.map((p) => (
-            <ProjectCard key={p.title} project={p} />
+            <ProjectCard key={p.slug} project={p} />
           ))}
         </div>
       </div>

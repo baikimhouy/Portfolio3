@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 import "../App.css";
 const navLinks = [
-  { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "Design", href: "#design" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#hero" },
+  { label: "About", href: "/#about" },
+  { label: "Design", href: "/#design" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
@@ -19,22 +20,22 @@ export default function Nav() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="nav__inner">
-        <a href="#hero" className="nav__logo">
+        <Link to="/#hero" className="nav__logo">
           <span className="nav__logo-name">Hui</span>
-        </a>
+        </Link>
 
         <ul className={`nav__links ${menuOpen ? "nav__links--open" : ""}`}>
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
+              <Link
+                to={link.href}
                 className={`nav__link ${active === link.href ? "nav__link--active" : ""}`}
                 onClick={() => {
                   setActive(link.href);
@@ -42,14 +43,14 @@ export default function Nav() {
                 }}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        <a href="#contact" className="nav__cta">
+        <Link to="/#contact" className="nav__cta">
           Hire Me
-        </a>
+        </Link>
 
         <button
           className={`nav__burger ${menuOpen ? "nav__burger--open" : ""}`}
